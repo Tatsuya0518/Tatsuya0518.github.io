@@ -1,35 +1,33 @@
-$(function() {
-  var words = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme",
-    ];
-    $( "#keyword" ).autocomplete({
-      source: function(request, response) {
-        var list = [];
-        list = words.filter(function (word) {
-          return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
-        });
-        response(list);
-      },
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  const ramenList = [
+    "豚骨ラーメン",
+    "醤油ラーメン",
+    "味噌ラーメン",
+    "塩ラーメン",
+    "つけ麺",
+    "博多ラーメン",
+    "札幌ラーメン",
+    "東京ラーメン",
+    "熊本ラーメン",
+    "鹿児島ラーメン",
+    "担々麺",
+    "冷やし中華",
+    "Tonkotsu Ramen",
+    "Shoyu Ramen",
+    "Miso Ramen",
+    "Shio Ramen",
+    "Tsukemen",
+    "Hakata Ramen",
+    "Sapporo Ramen",
+    "Tokyo Ramen",
+    "Kumamoto Ramen",
+    "Kagoshima Ramen",
+    "Tantanmen",
+    "Hiyashi Chuka"
+  ];
+
+  const input = document.getElementById("autocomplete");
+  new Awesomplete(input, {
+    list: ramenList
+  });
 });
