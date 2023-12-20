@@ -23,10 +23,11 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./time.css">
   <script src="./time.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
 </head>
   
 <body>
-  <script src="./subject.js"></script>
   <!-- <h4>昼休みを考慮して，開始/終了時刻から作業時間をhour単位で出力します</h4> -->
   <h5>休憩を考慮して，開始/終了時刻から作業時間をhour単位で出力します</h5>
   <div class="lunchTimeSet">
@@ -79,7 +80,7 @@
             </div>
           </td>
           <td><input type="text" class="result" name="result" value="0.0" readonly></td>
-          <td><input type="text" id="keyword" class="memo" placeholder="作業内容メモ"></td>
+          <td><input type="text" id="autocomplete" class="awesomplete" placeholder="作業内容メモ"></td>
           <td><button type="reset" class="btn btn-secondary" onclick="clearNumber(timerForm1)">Reset</button></td>
         </form>
       </tr>
