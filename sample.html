@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penguin Character</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.168.0/three.module.js"></script>
+    <script>
+        // シーン、カメラ、レンダラーを作成
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+
+        // ペンギンの形状を作成
+        const geometry = new THREE.SphereGeometry( 0.5, 32, 32 ); // 頭
+        const material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+        const sphere = new THREE.Mesh( geometry, material );
+        scene.add( sphere );
+
+        const bodyGeometry = new THREE.SphereGeometry( 0.7, 32, 32 );
+        const bodyMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+        const body = new THREE.Mesh( bodyGeometry, bodyMaterial );
+        body.position.y = -0.8; 
+        scene.add( body );
+
+        // カメラの位置を設定
+        camera.position.z = 5;
+
+        // アニメーションループ
+        function animate() {
+            requestAnimationFrame( animate );
+
+            // ペンギンを回転させる（例）
+            sphere.rotation.y += 0.01;
+            body.rotation.y += 0.01;
+
+            renderer.render( scene, camera );
+        }
+        animate();
+    </script>
+</body>
+</html>
